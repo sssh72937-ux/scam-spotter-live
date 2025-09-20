@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 
 interface ThreatAlert {
   id: string;
-  type: "phone" | "website" | "email";
+  type: "phone" | "website" | "email" | "sms" | "app" | "investment";
   title: string;
   description: string;
   severity: "high" | "medium" | "low";
@@ -21,38 +21,65 @@ export const ThreatAlerts = () => {
     const mockAlerts: ThreatAlert[] = [
       {
         id: "1",
-        type: "phone",
-        title: "IRS Impersonation Scam",
-        description: "Callers claiming to be from IRS demanding immediate payment",
+        type: "sms",
+        title: "Fake Loan Approval Messages",
+        description: "SMS messages claiming instant loan approval with suspicious links",
         severity: "high",
-        timestamp: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago
-        affectedUsers: 1247
+        timestamp: new Date(Date.now() - 2 * 60 * 1000), // 2 minutes ago
+        affectedUsers: 2156
       },
       {
         id: "2",
-        type: "website",
-        title: "Fake Banking Login Pages",
-        description: "Phishing websites mimicking major bank login portals",
+        type: "app",
+        title: "Malicious Banking Apps",
+        description: "Fake banking apps stealing login credentials on Play Store",
         severity: "high",
-        timestamp: new Date(Date.now() - 15 * 60 * 1000), // 15 minutes ago
-        affectedUsers: 892
+        timestamp: new Date(Date.now() - 8 * 60 * 1000), // 8 minutes ago
+        affectedUsers: 1342
       },
       {
         id: "3",
-        type: "email",
-        title: "Lottery Winner Scam",
-        description: "Emails claiming recipients have won international lottery",
-        severity: "medium",
-        timestamp: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
-        affectedUsers: 3421
+        type: "investment",
+        title: "Cryptocurrency Investment Scam",
+        description: "Fake trading platforms promising guaranteed returns",
+        severity: "high",
+        timestamp: new Date(Date.now() - 12 * 60 * 1000), // 12 minutes ago
+        affectedUsers: 987
       },
       {
         id: "4",
         type: "phone",
-        title: "Tech Support Scam",
-        description: "Callers claiming to be from Microsoft/Apple tech support",
+        title: "IRS Impersonation Scam",
+        description: "Callers claiming to be from IRS demanding immediate payment",
+        severity: "high",
+        timestamp: new Date(Date.now() - 18 * 60 * 1000), // 18 minutes ago
+        affectedUsers: 1247
+      },
+      {
+        id: "5",
+        type: "website",
+        title: "Fake Banking Login Pages",
+        description: "Phishing websites mimicking major bank login portals",
+        severity: "high",
+        timestamp: new Date(Date.now() - 25 * 60 * 1000), // 25 minutes ago
+        affectedUsers: 892
+      },
+      {
+        id: "6",
+        type: "sms",
+        title: "Phishing SMS Campaign",
+        description: "Messages claiming account suspension with malicious links",
         severity: "medium",
-        timestamp: new Date(Date.now() - 45 * 60 * 1000), // 45 minutes ago
+        timestamp: new Date(Date.now() - 35 * 60 * 1000), // 35 minutes ago
+        affectedUsers: 3421
+      },
+      {
+        id: "7",
+        type: "investment",
+        title: "Binary Options Scam",
+        description: "Unregulated trading platforms targeting new investors",
+        severity: "medium",
+        timestamp: new Date(Date.now() - 42 * 60 * 1000), // 42 minutes ago
         affectedUsers: 654
       }
     ];
@@ -81,6 +108,12 @@ export const ThreatAlerts = () => {
         return "🌐";
       case "email":
         return "📧";
+      case "sms":
+        return "💬";
+      case "app":
+        return "📱";
+      case "investment":
+        return "💰";
       default:
         return "⚠️";
     }
